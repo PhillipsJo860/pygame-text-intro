@@ -2,6 +2,7 @@
 
 import pygame, sys, config
 
+
 def init_game():
     pygame.init()
     screen = pygame.display.set_mode((config.WINDOW_WIDTH, config.WINDOW_HEIGHT))
@@ -26,10 +27,13 @@ def draw_rect(screen, rect, color, thickness):
 def draw_circle(screen, center, radius, color, thickness):
     pygame.draw.circle(screen, color, center, radius, thickness)
 
+def draw_text(screen, text, font, text_col, x, y):
+     img = font.render(text, True, text_col)
 
 def main():
     screen = init_game()
     clock = pygame.time.Clock()
+    text_font = pygame.font.Font()
     running = True
     while running:
         running = handle_events()
