@@ -28,19 +28,23 @@ def draw_circle(screen, center, radius, color, thickness):
     pygame.draw.circle(screen, color, center, radius, thickness)
 
 def draw_text(screen, text, font, text_col, x, y):
-     img = font.render(text, True, text_col)
+    img = font.render( text, True, text_col)
+    screen.blit(img, (x,y))
 
 def main():
     screen = init_game()
     clock = pygame.time.Clock()
-    text_font = pygame.font.Font()
+    text_font = pygame.font.Font('sixtyfour.ttf', 30)
     running = True
     while running:
         running = handle_events()
         screen.fill(config.COLOR_WHITE)
 
+        draw_text(screen, 'Joshua Phillips', text_font, config.COLOR_CYAN, 10, 10)
+        draw_text(screen, 'Alba School', text_font, config.COLOR_DARKRED, 10, 60)
+
         # Calling a grid (Comment this out after you are done coding)
-        grid(screen)
+        # grid(screen)
         
         pygame.display.flip()
 
